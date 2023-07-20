@@ -3,8 +3,7 @@ import axios from 'axios';
 import React from 'react'
 import { useGlobalContext } from './context';
 
-const client_id = import.meta.env.VITE_API_KEY;
-const url = `https://api.unsplash.com/search/photos?client_id=${client_id}&query=`;
+const url = `/.netlify/functions/getPhotos?keyword=`;
 const Gallery = () => {
     const {searchValue} = useGlobalContext();
   const {data, isLoading, isError, error} = useQuery({
@@ -24,14 +23,14 @@ const Gallery = () => {
         <h4>There was an error...</h4>
     </section>
   }
-  const results = data.results;
-  if (results.length === 0) {
+  const results = data?.results;
+  if (results?.length === 0) {
     return <section className="image-container">
         <h4>No results found...</h4>
     </section>
   }
   return (<section className="image-container">
-    {results.map(item => {
+    {results?.map(item => {
         const url = item?.urls?.regular;
         return (<img src={url} alt={item.alt_description} key={item.id} className='img'/>)
     })}

@@ -9,3 +9,8 @@
 - npm install
 - npm run dev
 
+
+#### Hide secrents using netlify serverless functions
+
+https://www.freecodecamp.org/news/hide-api-keys-in-frontend-apps-using-netlify-functions
+

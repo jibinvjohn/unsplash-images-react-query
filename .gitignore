@@ -1,3 +1,4 @@
 __MACOSX
 .env
+.netlify
 node_modules
